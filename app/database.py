@@ -8,7 +8,7 @@ from app.core.settings import settings
 
 url = URL.create(
     drivername="postgresql",
-    username=settings.DB_USER,   
+    username=settings.DB_USER,
     password=settings.DB_PASS,
     host=settings.DB_HOST,
     port=settings.DB_PORT,
@@ -25,4 +25,3 @@ def get_db() -> Generator[Session, None, None]:
         yield db
     finally:
         db.close()
-
