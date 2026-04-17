@@ -7,12 +7,12 @@ from app.core.settings import settings
 
 
 url = URL.create(
-    drivername="postgresql+psycopg2",
-    host=settings.db_host,
-    port=settings.db_port,
-    username=settings.db_user,
-    password=settings.db_password,
-    database=settings.db_name,
+    drivername="postgresql",
+    username=settings.DB_USER,   
+    password=settings.DB_PASS,
+    host=settings.DB_HOST,
+    port=settings.DB_PORT,
+    database=settings.DB_NAME,
 )
 engine = create_engine(url)
 SessionLocal = sessionmaker(engine)
@@ -25,3 +25,4 @@ def get_db() -> Generator[Session, None, None]:
         yield db
     finally:
         db.close()
+
